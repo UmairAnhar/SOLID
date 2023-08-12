@@ -1,0 +1,30 @@
+﻿WITHOUT OCP
+
+--------------------------START-----------------------------------
+
+As you can see, within the Invoice class, we have created the GetInvoiceDiscount() method. As part of that GetInvoiceDiscount() method, we are calculating the final amount based on the Invoice type. As of now, we have two Invoice Types 
+
+Final Invoice
+Proposed Invoice. 
+
+So we have implemented the logic using the if-else condition.
+
+Tomorrow, if one more Invoice Type comes into the picture then we need to modify the GetInvoiceDiscount() method logic by adding another else if block to the source code. As we are changing the source code for the new requirement, we are violating the Open-Closed Principle in C#. 
+
+--------------------------END---------------------------------
+
+WITH OCP
+
+--------------------------START-----------------------------------
+
+As you can see, we have created three classes 
+
+FinalInvoice
+ProposedInvoice
+RecurringInvoice. 
+
+All these three classes are inherited from the base class Invoice and if they want then they can override the GetInvoiceDiscount() method which is declared as Virtual in the Base Invoice class. 
+
+Tomorrow if another Invoice Type needs to be added then we just need to create a new class by inheriting it from the Invoice class and if needed then we need to override the GetInvoiceDiscount() method. The point that you need to keep focus on is we are not changing the code of the Invoice class. Now, the Invoice class is Closed for Modification. But it is Open for Extension as it allows the creation of new classes deriving from the base Invoice class which clearly follows the Open-Closed Principle in C#. 
+
+--------------------------END---------------------------------

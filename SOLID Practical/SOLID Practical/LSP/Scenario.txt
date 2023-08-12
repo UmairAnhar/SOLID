@@ -1,0 +1,19 @@
+﻿WITHOUT LSP
+
+--------------------------START-----------------------------------
+
+we create the Apple class with the method GetColor. Then we create the Orange class which inherits the Apple class as well as overrides the GetColor method of the Apple class. The point is that an Orange cannot be replaced by an Apple, which results in printing the color of the apple as Orange.
+
+As you can see in the above example, Apple is the base class and Orange is the child class i.e. there is a Parent-Child relationship. So, we can store the child class object in the Parent class Reference variable i.e. Apple apple = new Orange(); and when we call the GetColor i.e. apple.GetColor(), then we are getting the color Orange, not the color of an Apple. That means once the child object is replaced i.e. Apple storing the Orange object, the behavior is also changed. This is against the LSP Principle. The Liskov Substitution Principle states that even if the child object is replaced with the parent, the behavior should not be changed. So, in this case, if we are getting the color of Apple instead of Orange, then it follows the Liskov Substitution Principle. That means there is some issue with our software design.
+
+--------------------------END---------------------------------
+
+WITH LSP
+
+--------------------------START-----------------------------------
+
+first, we need a generic base Interface i.e. IFruit which is going to be the base class for both Apple and Orange classes. Now, you can replace the IFruit interface can be replaced with its subtypes either Apple or Orange and it will behave correctly.
+
+So, now Fruit can be any type and any color, but orange cannot be the color red and an apple cannot be of the color orange, meaning we cannot replace orange with an apple but fruit can be replaced with an orange or an apple because they are both Fruits, an apple is not an orange and an orange is not an apple.
+
+--------------------------END---------------------------------

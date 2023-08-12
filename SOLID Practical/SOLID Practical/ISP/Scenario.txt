@@ -1,0 +1,30 @@
+﻿WITHOUT ISP
+
+--------------------------START-----------------------------------
+
+We are having one interface and two classes implementing that Interface.
+
+As you can see, we have an interface i.e. IPrinterTasks declared with four methods. 
+
+Print
+Scan
+Fax
+PriuntDuplex
+
+Now if any class wants to implement this interface, then that class should and must have to provide the implementation to all four methods of the IPrinterTasks interface. As, we have two classes HPLaserJetPrinter and LiquidInkjetPrinter who want the printer service.
+
+But the requirement is the HPLaserJetPrinter wants all the services provided by the IPrinterTasks while the LiquidInkjetPrinter wants only the Print and Scan service of the printer. As we have declared all the methods within the IPrinterTasks interface, then it is mandatory for the LiquidInkjetPrinter class to provide implementation to Scan and Print methods along with the Fax and PrintDulex method which are not required by the class. This violates the Interface Segregation Principle in C# as are forcing the class to provide the implementation which they don’t require.
+
+--------------------------END---------------------------------
+
+WITH ISP
+
+--------------------------START-----------------------------------
+
+As, now we have split that big interface into three small interfaces. Each interface now has some specific purpose.
+
+Now if any class wants all the printer services then that class needs to implement all three interfaces. In our example, HPLaserJetPrinter wants all the printer services. So, the HPLaserJetPrinter class needs to implement all three interfaces and provide implementations of all interface methods
+
+Now, if any class wants the Scan and Print services, then that class needs to implement only the IPrinterTasks interfaces. In our example, LiquidInkjetPrinter wants only the Scan and Print services. So, the LiquidInkjetPrinter class needs to implement only the IPrinterTasks interfaces and needs to provide implementations for Print and Scan methods
+
+--------------------------END---------------------------------

@@ -1,0 +1,23 @@
+﻿WITHOUT SRP
+
+--------------------------START-----------------------------------
+
+we are going to create an Invoice class with four functionalities 
+
+Adding Invoices
+Deleting Invoices
+Error Logging
+Sending Emails. 
+
+As we are putting all the above four functionalities into a single class or module, we are violating the Single Responsibility Principle in C#. This is because Sending Emails and Error Logging is not a part of the Invoice module.
+
+--------------------------END---------------------------------
+
+WITH SRP
+
+--------------------------START-----------------------------------
+
+Now we are going to create three classes. In the invoice class, only invoice-related functionalities are going to be implemented. The Logger class is going to be used only for
+logging purposes. Similarly, the Email class is going to handle Email activities. Now each class has only its own responsibilities, as a result, it follows the Single Responsibility Principle in C#. Now, if you want to modify the email functionality, then you need to change the Email class only, not the Invoice and Logging class. Similarly, if you want to modify the Invoice functionalities, then you need to change the Invoice class only, not the Email and Logging class.
+
+--------------------------END---------------------------------
